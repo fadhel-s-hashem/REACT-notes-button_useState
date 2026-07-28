@@ -25,7 +25,7 @@ return(
 ### (useState) for button to add numbers
 #### now to make the count show in page 
 - first import the useState `import { useState } from 'react'`
-- now rewrite the above code to usestate
+- now rewrite the above code to useState (Array Destructuring )
 - the raw ` const [varible, setter function] = useState()` for count ` const [count, setCount] = useState(0)`
 - now update the `handleClick` to increase count by one (but remember use setter function) `const handleClick = () => {setCount(count+1)}`
 ````
@@ -71,8 +71,25 @@ const [isDarkMode, setIsDarkMode] = useState(false)
 return(
 <div className={isDarkMode ? 'dark' : 'light'}>
 <button onClick={() => handelClicked('dark')}> Dark mode</button>
-<br />
 <button onClick={() => handelClicked('light')}> light mode</button>
 </div>
 )}
 ````
+
+## button for Array
+the tydent array `const initialState = ['Ali', 'zainab' , 'omar' , 'sayed' , 'zaid']`
+- same as before add  Array Destructuring `const [students, setStudents] = useState(initialState)`
+- use `.map` function to loop through the arrey `{students.map((student) => (() => {})`
+---
+- create handle function `const handleDelete = (clickedStudent)=>{}` to add in onClick
+- inside add `.filter` function to delete `const result = students.filter((removeStudent =>` `removeStudent !== clickedStudent)`
+- this part `removeStudent !== clickedStudent)` mean that clicked student will be filtered and won't keep in the new array `result`
+- put `setStudents(result)` at the end to update the `student array`
+ * how `handleDelete` look like
+````
+const handleDelete = (clickedStudent)=>{
+    const result = students.filter((removeStudent) => removeStudent !== clickedStudent)
+    setStudents(result)
+}
+ ````
+- add buttom with onClick to delete ` <button onClick={}> delete student </button>`
