@@ -58,3 +58,21 @@ return(
       setIsDarkMode(false)
     }}
 ````
+- use a ternary for Boolean `{isDarkMode ? 'dark' : 'light'}`
+- create a button with (onClick) `<button onClick={() => handelClicked('dark')}>`
+````
+const [isDarkMode, setIsDarkMode] = useState(false) 
+  const handelClicked = (clickedBtn) => {
+    if (clickedBtn === 'dark'){
+      setIsDarkMode(true)
+    }else{
+      setIsDarkMode(false)
+
+return(
+<div className={isDarkMode ? 'dark' : 'light'}>
+<button onClick={() => handelClicked('dark')}> Dark mode</button>
+<br />
+<button onClick={() => handelClicked('light')}> light mode</button>
+</div>
+)}
+````
