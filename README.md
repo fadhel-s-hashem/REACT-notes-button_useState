@@ -92,4 +92,17 @@ const handleDelete = (clickedStudent)=>{
     setStudents(result)
 }
  ````
-- add buttom with onClick to delete ` <button onClick={}> delete student </button>`
+- inside the `map`add buttom with onClick to delete ` <button onClick={}> delete student </button>`
+- inside cnClick creat arrow function foe handleDelete `onClick={() => handleDelete (student)}`
+- by adding the arrow function its like telling react dont delete all students just delete the clicked one
+````
+{students.map((student) => (
+  <>
+  <li> {student} </li>
+  <button onClick={() => {handleDelete (student)}}> Delete {student}</button>
+  </>
+))}
+````
+---
+### to show deleted students
+
