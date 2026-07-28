@@ -46,3 +46,15 @@ return(
 </>
 )}
 ````
+## butom for dark mode
+- Declare State with Array Destructuring `const [isDarkMode, setIsDarkMode] = useState(false) `
+- adjust the function to be Boolean inside (handleClick) ` const handelClicked = (clickedBtn) => {}`
+````
+ const [isDarkMode, setIsDarkMode] = useState(false) 
+  const handelClicked = (clickedBtn) => {
+    if (clickedBtn === 'dark'){
+      setIsDarkMode(true)
+    }else{
+      setIsDarkMode(false)
+    }}
+````
