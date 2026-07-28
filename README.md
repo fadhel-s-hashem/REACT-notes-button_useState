@@ -76,9 +76,9 @@ return(
 )}
 ````
 
-## button for Array
-the tydent array `const initialState = ['Ali', 'zainab' , 'omar' , 'sayed' , 'zaid']`
-- same as before add  Array Destructuring `const [students, setStudents] = useState(initialState)`
+# button for Array
+the students array `const initialState = ['Ali', 'zainab' , 'omar' , 'sayed' , 'zaid']`
+- same as before add  state Array Destructuring `const [students, setStudents] = useState(initialState)`
 - use `.map` function to loop through the arrey `{students.map((student) => (() => {})`
 ---
 - create handle function `const handleDelete = (clickedStudent)=>{}` to add in onClick
@@ -105,4 +105,48 @@ const handleDelete = (clickedStudent)=>{
 ````
 ---
 ### to show deleted students
+- create a state Array Destructuring for deltedstudents with value of empty arrey `const [deletedStudents,setDeletedStudents] = useState([]`
+- inside the `handleDelete` add the state setter `setDeletedStudents`
+- with spread operator of `deletedStudents` with `clickedStudent`
+- `setDeletedStudents([...deletedStudents,clickedStudent])`
+- finally `map` through the deleted student to show them
+````
+import { useState } from 'react'
+const App = () => {
+  const initialState = ['Ali', 'zainab' , 'omar' , 'sayed' , 'zaid']
+
+  const [students, setStudents] = useState(initialState)
+  const [deletedStudents , setDeletedStudents] = useState([])
+
+  const handleDelete = (clickedStudent)=>{
+    const result = students.filter((removeStudent) => removeStudent !== clickedStudent)
+    setStudents(result)
+    setDeletedStudents([...deletedStudents,clickedStudent])
+}
+
+return(
+<div>
+<h1> Student </h1
+{students.map((student) => (
+  <>
+  <li> {student} </li>
+  <button onClick={() => {handleDelete (student)}}> Delete {student}</button>
+  </>
+))}
+
+<h1>Deleted students</h1>
+{deletedStudents.map((deletedStudents) => ( <p>{deletedStudents}</p>
+))}
+</div>
+)}
+````
+* image before deleting students
+<img width="563" height="506" alt="image" src="https://github.com/user-attachments/assets/a30ffcf3-3ecc-46b3-a953-6dc38c93bbac" />
+
+* image after deleting students
+  
+<img width="658" height="540" alt="image" src="https://github.com/user-attachments/assets/fc299f8e-9455-4255-af13-5f4ac532acdd" />
+
+
+
 
