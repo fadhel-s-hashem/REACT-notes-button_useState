@@ -21,3 +21,28 @@ return(
 </>
 )}
 ````
+
+### (useState) for button to add numbers
+#### now to make the count show in page 
+- first import the useState `import { useState } from 'react'`
+- now rewrite the above code to usestate
+- the raw ` const [varible, setter function] = useState()` for count ` const [count, setCount] = useState(0)`
+- now update the `handleClick` to increase count by one (but remember use setter function) `const handleClick = () => {setCount(count+1)}`
+````
+ const App = () => {
+
+  // let count --> current state
+ const [count, setCount] = useState(0)
+
+  const handleClick = () => {
+    setCount(count+1)
+    console.log(count)
+  }
+
+return(
+<>
+<h3>{count} </h3>
+<button onClick={handleClick}> Cick me</button>
+</>
+)}
+````
